@@ -1,5 +1,5 @@
 """
-AI by Maurice, Alexa, Lilia and Sirja in the 1vs1 Seekers LSGM Tournament 2023; 3th place
+AI by Maurice, Alexa, Lilia and Sirja in the 1vs1 Seekers LSGM Tournament 2023; 3rd place
 """
 
 from seekers import *
