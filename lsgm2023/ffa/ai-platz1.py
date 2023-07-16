@@ -1,5 +1,5 @@
 """
-AI by Jan and Karl in the Seekers FFA LSGM Tournament 2023; 3th place
+AI by Jan and Karl in the Seekers FFA LSGM Tournament 2023; 3rd place
 """
 
 from seekers import *
