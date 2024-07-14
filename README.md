@@ -19,3 +19,15 @@ This archive contains old bots that have won past tournaments. We hope that the 
 - Copy the code or part of the code without giving credit
 - Advertise someone else's code as your own work
 - Enter a tournament with a bot based solely on the work of previous bots, without improving anything (aka no changes made)
+
+## Preamble
+
+```python
+"""
+This bot was created by <authors> in the Seekers <mode> <tournament>. It received the <place> place.
+"""
+```
+
+## License
+
+This project is licensed under GNU General Public License. Please note that all bot files can have there own license and may have there own limitations.

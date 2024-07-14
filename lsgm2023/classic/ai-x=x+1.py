@@ -1,12 +1,8 @@
 """
-This bot was created by Michael in the Seekers Classic LSGM Summer Camp Tournament 2024. It received the 3rd place.
+This bot was created by Maurice, Alexa, Lilia and Sirja in the Seekers Classic LSGM Summer Camp Tournament 2023. It received the 3rd place.
 """
 
 from seekers import *
-# python ./examples/ai-demo.py
-# python -m examples.ai-demo
-# examples/ai-decide.py examples/ai-decide.py
-# python run_seekers.py examples/ai-x=x+1_1vs1.py examples/Tests/ai2.py --nogrpc --debug --nokill
 
 __color__ = (12, 242, 231)
 
@@ -14,7 +10,10 @@ def decide(own_seekers: list[Seeker], other_seekers: list[Seeker], all_seekers: 
            other_players: list[Player], own_camp: Camp, camps: list[Camp], world: World, passed_time: float):
 
     # Gegner Camp falls gleicher Bot gegeneinander
-    other_camp=other_players[0].camp
+    for camp in camps:
+        if camp != own_camp:
+            other_camp = camp
+            break
 
     # Blocker
     blocker = own_seekers[0]
@@ -47,12 +46,6 @@ def decide(own_seekers: list[Seeker], other_seekers: list[Seeker], all_seekers: 
     # Goaler
     n = 4 # Range ab welcher Magnet bei Goaler eingeschalten wird
     camp_zone = [
-        Vector(own_camp.position.x-own_camp.width/4, own_camp.position.y-own_camp.width/4),
-        Vector(own_camp.position.x+own_camp.width/4, own_camp.position.y-own_camp.width/4),
-        Vector(own_camp.position.x-own_camp.width/4, own_camp.position.y+own_camp.width/4),
-        Vector(own_camp.position.x+own_camp.width/4, own_camp.position.y+own_camp.width/4)
-    ]
-    camp_zone_target = [
         Vector(own_camp.position.x-own_camp.width/8, own_camp.position.y-own_camp.width/8),
         Vector(own_camp.position.x+own_camp.width/8, own_camp.position.y-own_camp.width/8),
         Vector(own_camp.position.x-own_camp.width/8, own_camp.position.y+own_camp.width/8),
@@ -61,11 +54,11 @@ def decide(own_seekers: list[Seeker], other_seekers: list[Seeker], all_seekers: 
     for i in [3, 4]:
         goaler = own_seekers[i]
         distance = world.torus_distance(goaler.position, world.nearest_goal(goaler.position, goals).position)
-        if world.torus_distance(goaler.position, camp_zone[world.index_of_nearest(goaler.position, camp_zone)]) <= own_camp.width and goaler.magnet.is_on == True and distance >= own_camp.width*2:
+        if world.torus_distance(goaler.position, camp_zone[world.index_of_nearest(goaler.position, camp_zone)]) <= own_camp.width and goaler.magnet.is_on == True and distance <= own_camp.width*2:
             goaler.magnet.disable()
         elif distance <= (goaler.radius + goals[0].radius) * n:
             goaler.magnet.set_attractive()
-            goaler.target = camp_zone_target[world.index_of_nearest(goaler.position, camp_zone_target)] # own_camp.position, camp_zone[world.index_of_nearest(goaler.position, camp_zone)]
+            goaler.target = camp_zone[world.index_of_nearest(goaler.position, camp_zone)] # own_camp.position, camp_zone[world.index_of_nearest(goaler.position, camp_zone)]
         else:
             goaler.magnet.disable()
             goaler.target = world.nearest_goal(goaler.position, goals).position
@@ -76,22 +69,3 @@ def decide(own_seekers: list[Seeker], other_seekers: list[Seeker], all_seekers: 
             s.magnet.disable()
 
     return own_seekers
-
-#TODO
-'''
-1v1:
--# 1 Blocker im gegnerischen Tor (maybe mit repulsivem Magnetem an, kurz bevor Gegner aus)
--# 1 Defense (Abwehr des Tores)
--# 1 Rammbock für Gegner mit aktiven Magneten, solange Bug nicht gefixt
--# 2 Goaler (# nächster Goal, # besserer Stoppbereich) (eher unnötig: Abstimmen aufeinander)
-- Abstand zu anderen Teambots (gilt nicht im Bereich des Tores)
-- # Abstand von Gegnern
-
-Multiplayer:
-- Teaming von Bots mithilfe von Mustern zur Erkennung
-- Ersatzprogramm
-- 3 Goaler
-- 1 Defense
-- 1 Rammbock
-- sonst alles wie gehabt
-'''

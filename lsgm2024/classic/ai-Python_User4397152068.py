@@ -1,3 +1,7 @@
+"""
+This bot was created by Emilian, Moritz, Aaron and Anton in the Seekers Classic LSGM Summer Camp Tournament 2024. It received the 4th place.
+"""
+
 # .\run_seekers.exe .\ai-Python_User4397152068.py .\ai-Python_User4397152068.py
 from seekers import *
 import random

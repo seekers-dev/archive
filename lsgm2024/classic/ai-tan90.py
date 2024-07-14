@@ -1,3 +1,7 @@
+"""
+This bot was created by Sebastian, Jonathan and Arthur in the Seekers Classic LSGM Summer Camp Tournament 2024. It received the 1st place.
+"""
+
 from seekers import *
 import math
 import copy

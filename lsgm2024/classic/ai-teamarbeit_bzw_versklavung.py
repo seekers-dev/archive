@@ -1,7 +1,10 @@
+"""
+This bot was created by Maurice, Iris, Lilia, Sirja and Joy in the Seekers Classic LSGM Summer Camp Tournament 2024. It received the 2nd place.
+"""
+
 from seekers import * # :3
 from math import *
 import copy
-# python run_seekers.py examples/ai-x=x+1_1vs1.py .\examples\ai-versklavung.py --nogrpc --debug --nokill
 __color__ = (20,240,230)
 
 # 1 block, 2 goaler, 1 defend, 1 attack X

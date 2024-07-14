@@ -1,5 +1,5 @@
 """
-AI by Jan and Karl in the Seekers FFA LSGM Tournament 2023; 3rd place
+This bot was created by Jan and Karl in the Seekers Chaos LSGM Summer Camp Tournament 2023. It received the 3rd place.
 """
 
 from seekers import *

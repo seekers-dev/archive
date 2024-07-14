@@ -1,3 +1,7 @@
+"""
+This bot was created by Jan and Karl in the Seekers Classic LSGM Summer Camp Tournament 2024. It received the 5th place.
+"""
+
 from seekers import *
 
 __color__ = (94, 74, 22)
