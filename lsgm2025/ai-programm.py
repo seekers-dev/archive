@@ -1,4 +1,3 @@
-
 from seekers import *
 from seekers.debug_drawing import *
 
